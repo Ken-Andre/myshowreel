@@ -5,10 +5,19 @@
 
 ![orbit ring still](posters/poster_ring.jpg)
 
-## ▶️ Watch — plays right here, no download
-<video src="videos/showreel_1080p60.mp4" controls preload="metadata" width="100%"></video>
+## ▶️ Watch — autoplays right here, full reel one click away
 
-<video src="videos/showreel_vertical_1080x1920.mp4" controls preload="metadata" height="480"></video>
+GitHub's README renderer strips `<video>` tags, so: the previews below **autoplay silently in the
+README**, and one click opens the **[watch page](https://ken-andre.github.io/myshowreel/)** — full 1080p60 reel **with the synthesised
+score, playing in your browser, nothing to download**.
+
+**[▶ WATCH THE FULL REEL WITH SOUND →](https://ken-andre.github.io/myshowreel/)**
+
+[![16:9 showreel — autoplaying preview](https://ken-andre.github.io/myshowreel/docs/preview.gif)](https://ken-andre.github.io/myshowreel/)
+
+9:16 cut — preview (click to watch full):
+
+[![9:16 vertical cut — autoplaying preview](https://ken-andre.github.io/myshowreel/docs/preview_vertical.gif)](https://ken-andre.github.io/myshowreel/)
 
 | file | also grab it as |
 |---|---|
