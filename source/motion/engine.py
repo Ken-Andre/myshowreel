@@ -573,7 +573,7 @@ def vignette(rgb, amount=0.42, power=2.2, tint=INK):
 _scan = None
 def scanlines(rgb, amount=0.10, freq=3.0, roll=0.0):
     global _scan
-    y = np.arange(H, dtype=np.float32)
+    y = np.arange(rgb.shape[0], dtype=np.float32)
     s = 0.5 + 0.5 * np.sin((y * freq * math.pi / 3.0) + roll)
     rgb *= (1 - amount * s)[:, None, None]
     return rgb
@@ -611,11 +611,12 @@ def slice_glitch(rgb, t, amount=1.0, seed=0):
     if amount <= 0.001: return rgb
     r = np.random.default_rng(int(t * 60) + seed)
     out = rgb
+    hh_, ww_ = rgb.shape[:2]
     n = int(r.integers(3, 9) * amount)
     for _ in range(n):
-        y0 = int(r.integers(0, H - 12))
+        y0 = int(r.integers(0, hh_ - 12))
         hh = int(r.integers(4, 60) * amount)
-        sh = int(r.integers(-140, 140) * amount)
+        sh = int(r.integers(-140, 140) * amount * (ww_ / 1920.0))
         band = np.roll(out[y0:y0 + hh], sh, axis=1)
         out = out.copy()
         out[y0:y0 + hh] = band
