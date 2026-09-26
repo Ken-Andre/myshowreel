@@ -5,12 +5,16 @@
 
 ![orbit ring still](posters/poster_ring.jpg)
 
-## ▶️ Watch
-| cut | file | use it for |
-|---|---|---|
-| 16:9 master cut | [`videos/showreel_1080p60.mp4`](videos/showreel_1080p60.mp4) | portfolio embed, résumé page, Vimeo/YouTube upload |
-| 9:16 vertical cut | [`videos/showreel_vertical_1080x1920.mp4`](videos/showreel_vertical_1080x1920.mp4) | Reels / Shorts / TikTok |
-| the score, standalone | [`audio/showreel_score.wav`](audio/showreel_score.wav) | 120 BPM, fully synthesised |
+## ▶️ Watch — plays right here, no download
+<video src="videos/showreel_1080p60.mp4" controls preload="metadata" width="100%"></video>
+
+<video src="videos/showreel_vertical_1080x1920.mp4" controls preload="metadata" height="480"></video>
+
+| file | also grab it as |
+|---|---|
+| 16:9 master cut | [`videos/showreel_1080p60.mp4`](videos/showreel_1080p60.mp4) |
+| 9:16 vertical cut | [`videos/showreel_vertical_1080x1920.mp4`](videos/showreel_vertical_1080x1920.mp4) |
+| the score, standalone | [`audio/showreel_score.wav`](audio/showreel_score.wav) |
 
 End card: ![end card](posters/poster_endcard.jpg)
 
