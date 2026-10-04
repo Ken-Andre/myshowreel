@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YANSFOOD — Motion Showreel 15s (Master Storyboard & Beat Map)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=Geist+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0D10;
+    --card-bg: #14161B;
+    --border: #232730;
+    --cream: #F5F2ED;
+    --dark: #0A0A0A;
+    --orange: #FF6B35;
+    --orange-glow: rgba(255, 107, 53, 0.25);
+    --muted: #8E95A5;
+    --accent: #E2E8F0;
+    --green: #22C55E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--accent);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 40px 24px 100px;
+  }
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, 0.35);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .brand-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 10px var(--orange);
+  }
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-variation-settings: 'wdth' 125, 'wght' 800;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+  h1 span.yans { color: #FFFFFF; }
+  h1 span.food { color: var(--orange); }
+  .header-meta {
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+  .section-title {
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 50px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  
+  /* Stills Gallery Grid */
+  .stills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .still-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .still-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 16px 36px var(--orange-glow);
+  }
+  .still-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #000;
+  }
+  .still-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .still-info {
+    padding: 18px 20px;
+  }
+  .still-badge {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .still-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+  .still-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* Grid 3-column Info Boxes */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+  .info-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .info-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFF;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.05em;
+  }
+  .info-box ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .info-box li strong {
+    color: var(--cream);
+  }
+
+  /* Beat Map Table */
+  .table-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow-x: auto;
+    margin-bottom: 50px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+  }
+  th {
+    background: rgba(255, 255, 255, 0.03);
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255, 255, 255, 0.02); }
+  .td-cue {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+  .td-beat {
+    font-family: 'Geist Mono', monospace;
+    color: #94A3B8;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .td-time {
+    font-family: 'Geist Mono', monospace;
+    color: #FFFFFF;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .td-frame {
+    font-family: 'Geist Mono', monospace;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .td-scene {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFF;
+    display: inline-block;
+  }
+  .td-action {
+    color: #E2E8F0;
+  }
+  .td-sfx {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: #A3E635;
+  }
+  .orange-tag {
+    color: var(--orange);
+    font-weight: 600;
+  }
+  .code-block {
+    background: #090A0D;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: #E2E8F0;
+    overflow-x: auto;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  .btn-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: #FFF;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-play:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px var(--orange-glow);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <div class="brand-badge"><span class="dot"></span> RÉALISATION #02 · YANSFOOD MOTION SHOWREEL</div>
+      <h1><span class="yans">YANS</span><span class="food">FOOD</span></h1>
+    </div>
+    <div class="header-meta">
+      <div><strong>Format :</strong> 1440 × 1440 · Carré 1:1 · 60 FPS (F000 → F900)</div>
+      <div><strong>Timing :</strong> 15,00 s · 30 beats musicaux · 36 cues visuels · 120 BPM</div>
+      <div><strong>Moteur :</strong> Playwright Frame-Accurate Canvas &amp; Encodage FFmpeg H.264 AAC</div>
+      <div style="margin-top: 12px; display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
+        <a href="index.html" class="btn-play">▶ VOIR LE FILM (INDEX.HTML)</a>
+        <a href="videos/yansfood_master_1440x1440_60fps.mp4" class="btn-play" style="background: #1C202B; border: 1px solid #333;" download>📥 VIDÉO MASTER MP4 (6 Mo)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEO MASTER PLAYER & GIF PREVIEW -->
+  <div class="section-title">00 · FILM SHOWREEL ENCODÉ (1440×1440 · 60 FPS)</div>
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; margin-bottom: 40px; align-items: start;">
+    <div style="background: #000; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+      <video src="videos/yansfood_master_1440x1440_60fps.mp4" poster="posters/poster_master.png" controls preload="metadata" loop playsinline style="width: 100%; aspect-ratio: 1/1; display: block;"></video>
+    </div>
+    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 20px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 700; color: var(--orange); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">AUTOPLAY PREVIEW</div>
+      <img src="docs/preview.gif" alt="Autoplay preview" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 14px; display: block;">
+      <div style="font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px;">Master exporté en H.264 High Profile (yuv420p) @ 60 fps avec partition électro 120 BPM et SFX synchronisés.</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="videos/yansfood_master_1440x1440_60fps.mp4" class="btn-play" style="font-size: 12px; justify-content: center; padding: 10px 14px;" download>Télécharger Master 1440p60</a>
+        <a href="videos/yansfood_social_1080x1080_30fps.mp4" class="btn-play" style="font-size: 12px; justify-content: center; padding: 10px 14px; background: #1C202B; border: 1px solid #333;" download>Télécharger Social 1080p30</a>
+        <a href="videos/yansfood_vertical_1080x1920.mp4" class="btn-play" style="font-size: 12px; justify-content: center; padding: 10px 14px; background: #1C202B; border: 1px solid #333;" download>Télécharger Vertical 9:16</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STILLS GALLERY -->
+  <div class="section-title">01 · LES 4 STILLS CLÉS DU FILM</div>
+  <div class="stills-grid">
+    <!-- STILL 1: OPEN -->
+    <div class="still-card">
+      <div class="still-img-wrap">
+        <img src="stills/still_open.png" alt="Still Open - YANSFOOD">
+      </div>
+      <div class="still-info">
+        <div class="still-badge"><span>SCÈNE 01</span><span>0,00 s · BEAT 01</span></div>
+        <div class="still-name">OPEN — Le Wordmark</div>
+        <div class="still-desc">YANS en noir (#0A0A0A) + FOOD en orange (#FF6B35). Archivo wdth 125 wght 800 plein écran sur fond blanc cassé (#F5F2ED). Unique instant où les deux mots sont réunis avant le slam final.</div>
+      </div>
+    </div>
+
+    <!-- STILL 2: GLASS -->
+    <div class="still-card">
+      <div class="still-img-wrap">
+        <img src="stills/still_glass.png" alt="Still Glass - Liquid UI">
+      </div>
+      <div class="still-info">
+        <div class="still-badge"><span>SCÈNE 02</span><span>4,00 s · BEAT 09</span></div>
+        <div class="still-name">GLASS — Verre Liquide iOS 26</div>
+        <div class="still-desc">Toolbar en verre liquide avec feDisplacementMap + aberration chromatique. Curseur relight tirant le Poulet DG vers le golden hour orange naturel (#FF6B35).</div>
+      </div>
+    </div>
+
+    <!-- STILL 3: STAGE -->
+    <div class="still-card">
+      <div class="still-img-wrap">
+        <img src="stills/still_stage.png" alt="Still Stage - Keynote Presentation">
+      </div>
+      <div class="still-info">
+        <div class="still-badge"><span>SCÈNE 03</span><span>9,00 s · BEAT 19</span></div>
+        <div class="still-name">STAGE — Écosystème & Island</div>
+        <div class="still-desc">iPhone 3D dont le bezel s'élargit en fenêtre Mac avec store vénitien. Dynamic Island fluide qui pulse orange (#FF6B35) 1 beat. Interface réelle YansFood Cameroun.</div>
+      </div>
+    </div>
+
+    <!-- STILL 4: WALL -->
+    <div class="still-card">
+      <div class="still-img-wrap">
+        <img src="stills/still_wall.png" alt="Still Wall - Gallery Exhibition">
+      </div>
+      <div class="still-info">
+        <div class="still-badge"><span>SCÈNE 04</span><span>14,25 s · BEAT 29</span></div>
+        <div class="still-name">WALL — Mur Pexels & Lisière Orange</div>
+        <div class="still-desc">Print encadré avec lisière orange 2px (#FF6B35) sous des ombres de feuilles douces réelles. Iris 6 lames puis collision finale YANSFOOD.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCEPTS, BRAND TRUTH & RENDERING PIPELINE -->
+  <div class="grid-3">
+    <div class="info-box">
+      <h3>⚡ RÈGLE D'OR MÉMORISATION</h3>
+      <ul>
+        <li><strong>Séparation immédiate :</strong> YANS et FOOD se séparent dès 0,50 s (wdth 125 → 0 en accordéon).</li>
+        <li><strong>Tension de 14,25 s :</strong> Le spectateur attend la réunion de la marque tout au long du film.</li>
+        <li><strong>Slam final (14,75 s) :</strong> YANS spring-in de gauche, FOOD spring-in de droite, collision au centre.</li>
+        <li><strong>Boucle parfaite :</strong> F900 (15,00 s) = F000 (0,00 s) pour une diffusion continue en boucle infinie.</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>🇨🇲 VÉRITÉ PRODUIT YANSFOOD</h3>
+      <ul>
+        <li><strong>Copy approuvée :</strong> « TON REPAS, SANS LA FILE. »</li>
+        <li><strong>Plats réels :</strong> Poulet DG (3 500 FCFA), Riz Jollof (2 500 FCFA), Ndolè & Plantains.</li>
+        <li><strong>Paiements locaux :</strong> MTN MoMo, Orange Money, Cartes Bancaires.</li>
+        <li><strong>Villes couvertes :</strong> Douala & Yaoundé, Cameroun.</li>
+        <li><strong>Stores officiels :</strong> Badges Google Play & App Store confirmés.</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>⚙️ PIPELINE RENDU PLAYWRIGHT</h3>
+      <ul>
+        <li><strong>Capture déterministe :</strong> Playwright itère sur 900 frames via <code>seek(frame / 60)</code>.</li>
+        <li><strong>Encodage H.264 :</strong> FFmpeg assemble les frames PNG en x264 yuv420p.</li>
+        <li><strong>Mixage audio :</strong> Injection de la musique normalisée -14 LUFS et des 7 SFX Mixkit.</li>
+        <li><strong>Exports :</strong> Master 1440×1440 60 fps · Social 1080×1080 30 fps · Vertical 1080×1920 9:16.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BEAT MAP TABLE (TIMELINE MASTER) -->
+  <div class="section-title">02 · TIMELINE MASTER — 30 BEATS MUSICAUX · 36 CUES VISUELS · 120 BPM · 60 FPS · 15,00 S</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cue Visuel</th>
+          <th>Beat Musical (120 BPM)</th>
+          <th>Temps</th>
+          <th>Frame (60 fps)</th>
+          <th>Scène</th>
+          <th>Action & Évolution Visuelle (Labels Français)</th>
+          <th>SFX & Fil Orange #FF6B35</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-cue">Cue 01</td>
+          <td class="td-beat">Beat 01.0</td>
+          <td class="td-time">0,000 s</td>
+          <td class="td-frame">F000</td>
+          <td><span class="td-scene">OPEN</span></td>
+          <td class="td-action">Wordmark plein écran : <strong>YANS</strong>⬛ + <span class="orange-tag">FOOD</span>🟠 (Archivo wdth 125 wght 800).</td>
+          <td class="td-sfx">Downbeat Kick EDM</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 02</td>
+          <td class="td-beat">Beat 02.0</td>
+          <td class="td-time">0,500 s</td>
+          <td class="td-frame">F030</td>
+          <td><span class="td-scene">SQUEEZE</span></td>
+          <td class="td-action">Squeeze accordion : YANS converge vers la droite, FOOD vers la gauche. wdth 125 → 0.</td>
+          <td class="td-sfx">Wipe whoosh sub</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 03</td>
+          <td class="td-beat">Beat 03.0</td>
+          <td class="td-time">1,000 s</td>
+          <td class="td-frame">F060</td>
+          <td><span class="td-scene">PILL</span></td>
+          <td class="td-action">Point bicolore grossit en pill noire + trait orange (évocation boîte repas).</td>
+          <td class="td-sfx">pop.wav</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 04</td>
+          <td class="td-beat">Beat 04.0</td>
+          <td class="td-time">1,500 s</td>
+          <td class="td-frame">F090</td>
+          <td><span class="td-scene">IRIS CLOSE</span></td>
+          <td class="td-action">Clic curseur → iris 6 lames ferme sur la pill. YANS sort à gauche, FOOD à droite.</td>
+          <td class="td-sfx">click.wav + iris.wav</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 05</td>
+          <td class="td-beat">Beat 05.0</td>
+          <td class="td-time">2,000 s</td>
+          <td class="td-frame">F120</td>
+          <td><span class="td-scene">IRIS OPEN</span></td>
+          <td class="td-action">Iris snap-open → Poulet DG révélé (3 500 FCFA). Le masque rond se détend en carré.</td>
+          <td class="td-sfx">iris.wav snap</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 06</td>
+          <td class="td-beat">Beat 06.0</td>
+          <td class="td-time">2,500 s</td>
+          <td class="td-frame">F150</td>
+          <td><span class="td-scene">GRID UNROLL</span></td>
+          <td class="td-action">Le carré rétrécit au centre, grille de découverte de plats dépliée façon carte de restaurants.</td>
+          <td class="td-sfx">Paper unfold sweep</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 07</td>
+          <td class="td-beat">Beat 07.0</td>
+          <td class="td-time">3,000 s</td>
+          <td class="td-frame">F180</td>
+          <td><span class="td-scene">BENTO</span></td>
+          <td class="td-action">La grille reflue en bento 3×3 (spécialités camerounaises réelles) sur springs décalés.</td>
+          <td class="td-sfx">Stagger pop</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 08</td>
+          <td class="td-beat">Beat 08.0</td>
+          <td class="td-time">3,500 s</td>
+          <td class="td-frame">F210</td>
+          <td><span class="td-scene">ZOOM DROP</span></td>
+          <td class="td-action">Curseur plonge sur la case centrale, zoom studio ×4 sur le Poulet DG → <strong>DROP MUSIQUE</strong>.</td>
+          <td class="td-sfx">Impact Drop EDM (Kick + Sub)</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 09</td>
+          <td class="td-beat">Beat 09.0</td>
+          <td class="td-time">4,000 s</td>
+          <td class="td-frame">F240</td>
+          <td><span class="td-scene">GLASS POP</span></td>
+          <td class="td-action">Mot « GLASS » pop lettre par lettre avec spring closed-form individuel.</td>
+          <td class="td-sfx">glass.wav + pop.wav</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 10</td>
+          <td class="td-beat">Beat 10.0</td>
+          <td class="td-time">4,500 s</td>
+          <td class="td-frame">F270</td>
+          <td><span class="td-scene">DROPLET</span></td>
+          <td class="td-action">Lettres fondent en metaball (distance field + seuil alpha) en une goutte liquide.</td>
+          <td class="td-sfx">Liquid morph tick</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 11</td>
+          <td class="td-beat">Beat 11.0</td>
+          <td class="td-time">5,000 s</td>
+          <td class="td-frame">F300</td>
+          <td><span class="td-scene">TOOLBAR</span></td>
+          <td class="td-action">La goutte s'étire en toolbar glass horizontale iOS 26 (feDisplacementMap).</td>
+          <td class="td-sfx">Glass stretch tone</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 12</td>
+          <td class="td-beat">Beat 12.0</td>
+          <td class="td-time">5,500 s</td>
+          <td class="td-frame">F330</td>
+          <td><span class="td-scene">SLIDER</span></td>
+          <td class="td-action">L'icône adjust s'active, le curseur de rééclairage se matérialise avec repères.</td>
+          <td class="td-sfx">click.wav</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 13</td>
+          <td class="td-beat">Beat 13.0</td>
+          <td class="td-time">6,000 s</td>
+          <td class="td-frame">F360</td>
+          <td><span class="td-scene">RELIGHT</span></td>
+          <td class="td-action">Le curseur est tiré : le Poulet DG passe de lumière jour à golden hour <span class="orange-tag">#FF6B35</span>.</td>
+          <td class="td-sfx">Warm riser sweep</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 14</td>
+          <td class="td-beat">Beat 14.0</td>
+          <td class="td-time">6,500 s</td>
+          <td class="td-frame">F390</td>
+          <td><span class="td-scene">LENS</span></td>
+          <td class="td-action">Le knob est maintenu en long-press : il se détache en loupe réfractive circulaire.</td>
+          <td class="td-sfx">Detent pop</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 15</td>
+          <td class="td-beat">Beat 15.0</td>
+          <td class="td-time">7,000 s</td>
+          <td class="td-frame">F420</td>
+          <td><span class="td-scene">ORB</span></td>
+          <td class="td-action">La loupe prend de la hauteur en 3D et devient une orbe de verre liquide avec aberration.</td>
+          <td class="td-sfx">Harmonic glass ring</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 16</td>
+          <td class="td-beat">Beat 16.0</td>
+          <td class="td-time">7,500 s</td>
+          <td class="td-frame">F450</td>
+          <td><span class="td-scene">PHOTO #2</span></td>
+          <td class="td-action">Plat #2 (Riz Jollof 2 500 FCFA) s'ouvre à l'intérieur de l'orbe par dilatation radiale.</td>
+          <td class="td-sfx">Sub bloom</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 17</td>
+          <td class="td-beat">Beat 17.0</td>
+          <td class="td-time">8,000 s</td>
+          <td class="td-frame">F480</td>
+          <td><span class="td-scene">LOCKSCREEN</span></td>
+          <td class="td-action">L'orbe expand et plaque le lockscreen iOS (horloge de verre, date Geist Mono).</td>
+          <td class="td-sfx">Lock chime tick</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 18</td>
+          <td class="td-beat">Beat 18.0</td>
+          <td class="td-time">8,500 s</td>
+          <td class="td-frame">F510</td>
+          <td><span class="td-scene">MUSIC BAR</span></td>
+          <td class="td-action">La home bar inférieure s'épaissit et s'étire en widget statut de commande en verre.</td>
+          <td class="td-sfx">UI spring swish</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 19</td>
+          <td class="td-beat">Beat 19.0</td>
+          <td class="td-time">9,000 s</td>
+          <td class="td-frame">F540</td>
+          <td><span class="td-scene">STAGE IPHONE</span></td>
+          <td class="td-action">L'écran recule en perspective studio, le châssis titane de l'iPhone apparaît avec reflets.</td>
+          <td class="td-sfx">Camera pan whoosh</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 20</td>
+          <td class="td-beat">Beat 20.0</td>
+          <td class="td-time">9,500 s</td>
+          <td class="td-frame">F570</td>
+          <td><span class="td-scene">DYNAMIC ISLAND</span></td>
+          <td class="td-action">Dynamic Island s'étire fluide, <span class="orange-tag">pulse orange 1 beat</span>, s'envole en fenêtre Mac.</td>
+          <td class="td-sfx">Elastic pop + whoosh</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 21</td>
+          <td class="td-beat">Beat 21.0</td>
+          <td class="td-time">10,000 s</td>
+          <td class="td-frame">F600</td>
+          <td><span class="td-scene">BLINDS</span></td>
+          <td class="td-action">La fenêtre se déroule verticalement comme un store vénitien à lames d'aluminium.</td>
+          <td class="td-sfx">Venetian blind rattle</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 22</td>
+          <td class="td-beat">Beat 22.0</td>
+          <td class="td-time">10,500 s</td>
+          <td class="td-frame">F630</td>
+          <td><span class="td-scene">DRAG & DROP</span></td>
+          <td class="td-action">Long-press sur le plat, drag direct dans le panier de l'application YansFood.</td>
+          <td class="td-sfx">Pick & drop tick</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 23</td>
+          <td class="td-beat">Beat 23.0</td>
+          <td class="td-time">11,000 s</td>
+          <td class="td-frame">F660</td>
+          <td><span class="td-scene">HERO LANDING</span></td>
+          <td class="td-action">Push-in brutal dans la page : drop du hero landing page avec typographie massive YansFood.</td>
+          <td class="td-sfx">Snappy bass slam</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 24</td>
+          <td class="td-beat">Beat 24.0</td>
+          <td class="td-time">11,500 s</td>
+          <td class="td-frame">F690</td>
+          <td><span class="td-scene">BREAKDOWN</span></td>
+          <td class="td-action"><strong>BREAKDOWN CALME :</strong> La hero page se replie en carte produit premium dans un print flottant.</td>
+          <td class="td-sfx">Filter low-pass cut</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 25</td>
+          <td class="td-beat">Beat 25.0</td>
+          <td class="td-time">12,000 s</td>
+          <td class="td-frame">F720</td>
+          <td><span class="td-scene">MOULDING</span></td>
+          <td class="td-action">Le passe-partout et la moulure biseautée poussent hors du bord de la photo food.</td>
+          <td class="td-sfx">Frame latch tick</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 26</td>
+          <td class="td-beat">Beat 25.5 (micro)</td>
+          <td class="td-time">12,250 s</td>
+          <td class="td-frame">F735</td>
+          <td><span class="td-scene">COLOR SWEEP</span></td>
+          <td class="td-action">Color picker pipette : un trait de peinture laque orange <span class="orange-tag">#FF6B35</span> balaie le cadre intérieur.</td>
+          <td class="td-sfx">Paint sweep swish</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 27</td>
+          <td class="td-beat">Beat 26.0</td>
+          <td class="td-time">12,500 s</td>
+          <td class="td-frame">F750</td>
+          <td><span class="td-scene">COMMANDER</span></td>
+          <td class="td-action">Sélecteur de portion, bouton principal descend au premier plan : « <strong>Commander · 3 500 FCFA</strong> ».</td>
+          <td class="td-sfx">Pill slide tick</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 28</td>
+          <td class="td-beat">Beat 26.5 (micro)</td>
+          <td class="td-time">12,750 s</td>
+          <td class="td-frame">F765</td>
+          <td><span class="td-scene">BLACK FLOOD</span></td>
+          <td class="td-action">Clic sur le bouton → Flood noir (#0A0A0A) s'étend en cercle géant overscalé au-delà des 4 coins.</td>
+          <td class="td-sfx">flood.wav (whoosh profond)</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 29</td>
+          <td class="td-beat">Beat 27.0</td>
+          <td class="td-time">13,000 s</td>
+          <td class="td-frame">F780</td>
+          <td><span class="td-scene">CONFIRMÉE ✓</span></td>
+          <td class="td-action">Pill centrale blanche sur fond noir : « <strong>Commande confirmée ✓</strong> » (MoMo / Orange Money).</td>
+          <td class="td-sfx">order.wav (mixkit notif)</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 30</td>
+          <td class="td-beat">Beat 27.5 (micro)</td>
+          <td class="td-time">13,250 s</td>
+          <td class="td-frame">F795</td>
+          <td><span class="td-scene">EN PRÉPARATION</span></td>
+          <td class="td-action">Morphe en « <strong>En préparation ░░▓▓▓</strong> », la jauge de cuisine progresse en <span class="orange-tag">#FF6B35</span>.</td>
+          <td class="td-sfx">Ratchet progress</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 31</td>
+          <td class="td-beat">Beat 28.0</td>
+          <td class="td-time">13,500 s</td>
+          <td class="td-frame">F810</td>
+          <td><span class="td-scene">EN ROUTE</span></td>
+          <td class="td-action">Morphe en carte GPS : « <strong>En route / Prêt à récupérer</strong> » avec van orange sur tracé SVG.</td>
+          <td class="td-sfx">Electric motor zip</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 32</td>
+          <td class="td-beat">Beat 28.5 (micro)</td>
+          <td class="td-time">13,750 s</td>
+          <td class="td-frame">F825</td>
+          <td><span class="td-scene">COMMANDE PRÊTE</span></td>
+          <td class="td-action">Arrivée au point relais : explosion en check géant orange <span class="orange-tag">#FF6B35</span> « <strong>Commande prête ✓</strong> ».</td>
+          <td class="td-sfx">delivered.wav (mixkit success)</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 33</td>
+          <td class="td-beat">Beat 29.0</td>
+          <td class="td-time">14,000 s</td>
+          <td class="td-frame">F840</td>
+          <td><span class="td-scene">FLOOD CUT</span></td>
+          <td class="td-action">Le cercle du check s'étend à l'infini : écran noir pur pendant 1 beat de respiration et suspension.</td>
+          <td class="td-sfx">Silence de ponctuation</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 34</td>
+          <td class="td-beat">Beat 29.5 (micro)</td>
+          <td class="td-time">14,250 s</td>
+          <td class="td-frame">F855</td>
+          <td><span class="td-scene">WALL FOOTAGE</span></td>
+          <td class="td-action">Le noir se contracte : révélation du vrai mur vidéo avec ombres de plantes douces. Cadre avec lisière orange 2px.</td>
+          <td class="td-sfx">Iris snap in</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 35</td>
+          <td class="td-beat">Beat 29.75 (micro)</td>
+          <td class="td-time">14,500 s</td>
+          <td class="td-frame">F870</td>
+          <td><span class="td-scene">FINAL IRIS</span></td>
+          <td class="td-action">L'iris 6 lames se referme à toute vitesse sur le print central, concentrant toute l'énergie.</td>
+          <td class="td-sfx">iris.wav (snap rapide)</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Cue 36</td>
+          <td class="td-beat">Beat 30.0 (Return)</td>
+          <td class="td-time">14,750 s</td>
+          <td class="td-frame">F885</td>
+          <td><span class="td-scene">YANSFOOD RETURN</span></td>
+          <td class="td-action"><strong>SLAM FINAL :</strong> <strong>YANS</strong>⬛ spring-in de gauche + <span class="orange-tag">FOOD</span>🟠 spring-in de droite. Collision = <strong>YANSFOOD</strong> complet. Promesse : « <strong>TON REPAS, SANS LA FILE.</strong> » + Badges App Store / Google Play (tenue &gt; 0,8 s).</td>
+          <td class="td-sfx">Return Beat + Sub Impact</td>
+        </tr>
+        <tr>
+          <td class="td-cue">Boucle</td>
+          <td class="td-beat">Beat 30.0 (End)</td>
+          <td class="td-time">15,000 s</td>
+          <td class="td-frame">F900 = F000</td>
+          <td><span class="td-scene">BOUCLE PARFAITE</span></td>
+          <td class="td-action"><strong>F900 = F000 à 60 fps :</strong> Raccord boucle parfait sans couture sur le downbeat musical.</td>
+          <td class="td-sfx">Loop downbeat sync</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PLAYWRIGHT & FFMPEG RENDERING INSTRUCTIONS -->
+  <div class="section-title">03 · PIPELINE D'EXPORT PLAYWRIGHT & FFMPEG H.264</div>
+  <div class="code-block">
+# 1. Capture déterministe des 900 frames à 60 fps via Playwright
+node render_playwright.js --url "http://localhost:8080/realisations/yansfood/index.html" --frames 900 --fps 60 --out "./frames"
+
+# 2. Normalisation audio de la musique à -14 LUFS
+ffmpeg -i music.mp3 -af loudnorm=I=-14:LRA=11:TP=-1.5 -ar 48000 music-norm.mp3
+
+# 3. Assemblage Master H.264 1440x1440 60 fps avec mixage audio
+ffmpeg -r 60 -i ./frames/frame_%04d.png -i final_audio_mix.wav \
+       -c:v libx264 -pix_fmt yuv420p -profile:v high -level 4.2 -crf 17 \
+       -c:a aac -b:a 320k -shortest \
+       realisations/yansfood/videos/yansfood_master_1440x1440_60fps.mp4
+
+# 4. Déclinaison Réseaux Sociaux 1080x1080 30 fps
+ffmpeg -i realisations/yansfood/videos/yansfood_master_1440x1440_60fps.mp4 \
+       -vf "scale=1080:1080,fps=30" -c:v libx264 -crf 19 -c:a aac -b:a 256k \
+       realisations/yansfood/videos/yansfood_social_1080x1080_30fps.mp4
+
+# 5. Déclinaison Story / Reels / TikTok 1080x1920 (9:16 vertical)
+ffmpeg -i realisations/yansfood/videos/yansfood_master_1440x1440_60fps.mp4 \
+       -vf "scale=1080:1080,pad=1080:1920:0:420:color=0x0A0A0A" -c:v libx264 -crf 18 -c:a copy \
+       realisations/yansfood/videos/yansfood_vertical_1080x1920.mp4
+  </div>
+</div>
+
+</body>
+</html>

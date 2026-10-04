@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120">
+  <style>
+    .word-yans { font-family: 'Archivo', sans-serif; font-weight: 800; font-stretch: 125%; fill: #0A0A0A; font-size: 88px; }
+    .word-food { font-family: 'Archivo', sans-serif; font-weight: 800; font-stretch: 125%; fill: #FF6B35; font-size: 88px; }
+  </style>
+  <text x="10" y="90">
+    <tspan class="word-yans">YANS</tspan><tspan class="word-food">FOOD</tspan>
+  </text>
+</svg>

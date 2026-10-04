@@ -27,6 +27,26 @@ score, playing in your browser, nothing to download**.
 
 End card: ![end card](posters/poster_endcard.jpg)
 
+---
+
+## 🍽️ Réalisation #02 — YANSFOOD Showreel 15s (1440×1440 @ 60 FPS)
+
+> **YANSFOOD** · 15.00 s · 1440×1440 @ 60 fps + Social 1080×1080 + 9:16 Vertical Cut (1080×1920) ·
+> Score électro original 120 BPM · Verre liquide iOS 26 · Direction artistique Apple Keynote & HyperFrames.
+
+[![YansFood showreel preview](realisations/yansfood/docs/preview.gif)](realisations/yansfood/index.html)
+
+**[▶ LANCER LE FILM YANSFOOD DANS LE NAVIGATEUR →](realisations/yansfood/index.html)**
+
+| Livrable YANSFOOD | Lien fichier |
+|---|---|
+| 🎬 Master 1:1 (1440×1440 @ 60 fps) | [`realisations/yansfood/videos/yansfood_master_1440x1440_60fps.mp4`](realisations/yansfood/videos/yansfood_master_1440x1440_60fps.mp4) |
+| 📱 Social Cut (1080×1080 @ 30 fps) | [`realisations/yansfood/videos/yansfood_social_1080x1080_30fps.mp4`](realisations/yansfood/videos/yansfood_social_1080x1080_30fps.mp4) |
+| 📱 Vertical 9:16 Cut (1080×1920) | [`realisations/yansfood/videos/yansfood_vertical_1080x1920.mp4`](realisations/yansfood/videos/yansfood_vertical_1080x1920.mp4) |
+| 📋 Storyboard & Timeline Master | [`realisations/yansfood/preview.html`](realisations/yansfood/preview.html) |
+| 🎵 Score Original (120 BPM WAV) | [`realisations/yansfood/audio/yansfood_score.wav`](realisations/yansfood/audio/yansfood_score.wav) |
+
+
 ## ✂️ The cut — beat-locked to 120 BPM (downbeat at 1.000 s)
 | t | scene | what's happening |
 |---|---|---|

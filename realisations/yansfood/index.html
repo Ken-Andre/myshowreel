@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YANSFOOD — Showreel Master 15s (1440×1440 · 60 FPS)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-page: #08090C;
+    --canvas-cream: #F5F2ED;
+    --ui-dark: #0A0A0A;
+    --brand-orange: #FF6B35;
+    --brand-orange-light: #FF8855;
+    --text-muted: #8E95A5;
+    --border-dark: #222530;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg-page);
+    color: #E2E8F0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 16px 80px;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header Bar */
+  header {
+    width: 100%;
+    max-width: 1040px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: #111318;
+    border: 1px solid var(--border-dark);
+    border-radius: 14px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .badge-live {
+    background: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    color: var(--brand-orange);
+    padding: 3px 8px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 600;
+  }
+  .hud-stats {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: 'Geist Mono', monospace;
+    color: var(--text-muted);
+  }
+  .hud-val {
+    color: #FFF;
+    font-weight: 600;
+  }
+
+  /* Mode Switcher Tabs */
+  .mode-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .tab-btn {
+    background: #141720;
+    color: var(--text-muted);
+    border: 1px solid var(--border-dark);
+    padding: 10px 20px;
+    border-radius: 99px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--brand-orange);
+    color: #FFF;
+    border-color: var(--brand-orange);
+    box-shadow: 0 4px 18px rgba(255, 107, 53, 0.35);
+  }
+
+  /* Viewport Container for 1440x1440 master */
+  .viewport-stage {
+    position: relative;
+    width: min(84vw, 84vh, 760px);
+    aspect-ratio: 1 / 1;
+    background: var(--canvas-cream);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+  #motionVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #0A0A0A;
+  }
+  #motionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  /* Download & Video Links Grid */
+  .downloads-card {
+    width: 100%;
+    max-width: 1040px;
+    background: #111318;
+    border: 1px solid var(--border-dark);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .downloads-title {
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFF;
+  }
+  .download-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .dl-btn {
+    background: #1C202B;
+    border: 1px solid #2F3646;
+    color: #FFF;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .dl-btn:hover {
+    background: var(--brand-orange);
+    border-color: var(--brand-orange);
+  }
+
+  /* Controller / Scrubber Panel */
+  .control-panel {
+    width: 100%;
+    max-width: 1040px;
+    background: #111318;
+    border: 1px solid var(--border-dark);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .scrubber-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .time-readout {
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    color: #FFF;
+    min-width: 110px;
+  }
+  .frame-readout {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: var(--brand-orange);
+    min-width: 70px;
+    text-align: right;
+  }
+  .timeline-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: #232733;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .timeline-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--brand-orange);
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(255, 107, 53, 0.6);
+  }
+  .actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .left-btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  button {
+    background: #1C202B;
+    color: #E2E8F0;
+    border: 1px solid #2F3646;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  button:hover {
+    background: #282E3E;
+    color: #FFF;
+    border-color: #4A5568;
+  }
+  button.active {
+    background: var(--brand-orange);
+    color: #FFF;
+    border-color: var(--brand-orange);
+  }
+  .scene-info {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .scene-pill {
+    color: #FFF;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-title">
+    <span class="badge-live">YANSFOOD MASTER CUT</span>
+    <span>Film Motion Showreel 15s</span>
+  </div>
+  <div class="hud-stats">
+    <div>MASTER: <span class="hud-val">1440×1440 60 FPS</span></div>
+    <div>AUDIO: <span class="hud-val">120 BPM · -14 LUFS</span></div>
+    <div>DURÉE: <span class="hud-val">15,00 s (900 F)</span></div>
+  </div>
+</header>
+
+<div class="mode-tabs">
+  <button class="tab-btn active" id="tabVideo">🎬 VIDÉO ENCODÉE (MP4 H.264)</button>
+  <button class="tab-btn" id="tabCanvas">⚡ MOTEUR CANVAS INTERACTIF (SEEK)</button>
+</div>
+
+<div class="viewport-stage">
+  <!-- HTML5 MP4 Video Player -->
+  <video id="motionVideo" src="videos/yansfood_master_1440x1440_60fps.mp4" poster="posters/poster_master.png" controls loop playsinline></video>
+  <!-- Real-time 60fps Canvas Player -->
+  <canvas id="motionCanvas" width="1440" height="1440"></canvas>
+</div>
+
+<div class="control-panel" id="canvasControls" style="display: none;">
+  <div class="scrubber-row">
+    <div class="time-readout" id="timeDisplay">00:00:00.00</div>
+    <input type="range" class="timeline-slider" id="scrubber" min="0" max="900" step="1" value="0">
+    <div class="frame-readout" id="frameDisplay">F000/900</div>
+  </div>
+  <div class="actions-row">
+    <div class="left-btns">
+      <button id="playBtn" class="active">❚❚ PAUSE</button>
+      <button id="restartBtn">↺ REJOUER</button>
+      <button id="soundBtn">🔊 SON : ON</button>
+      <button id="jumpDropBtn">⚡ DROP (3.5s)</button>
+      <button id="jumpReturnBtn">💥 SLAM (14.75s)</button>
+    </div>
+    <div class="scene-info">
+      SCÈNE : <span class="scene-pill" id="sceneName">01 · OPEN WORDMARK</span>
+    </div>
+  </div>
+</div>
+
+<div class="downloads-card">
+  <div class="downloads-title">📥 EXPORTS DISPONIBLES DANS LE RÉPERTOIRE :</div>
+  <div class="download-links">
+    <a href="videos/yansfood_master_1440x1440_60fps.mp4" class="dl-btn" download>🎞️ Master 1440×1440 60fps (.mp4)</a>
+    <a href="videos/yansfood_social_1080x1080_30fps.mp4" class="dl-btn" download>📱 Social 1080×1080 (.mp4)</a>
+    <a href="videos/yansfood_vertical_1080x1920.mp4" class="dl-btn" download>📱 Vertical 9:16 (.mp4)</a>
+    <a href="docs/preview.gif" class="dl-btn" download>✨ GIF Autoplay</a>
+    <a href="preview.html" class="dl-btn">📋 Storyboard &amp; Timeline</a>
+  </div>
+</div>
+
+<script>
+// Switch between MP4 Video and Interactive Canvas
+const tabVideo = document.getElementById('tabVideo');
+const tabCanvas = document.getElementById('tabCanvas');
+const motionVideo = document.getElementById('motionVideo');
+const motionCanvas = document.getElementById('motionCanvas');
+const canvasControls = document.getElementById('canvasControls');
+
+tabVideo.addEventListener('click', () => {
+  tabVideo.classList.add('active');
+  tabCanvas.classList.remove('active');
+  motionVideo.style.display = 'block';
+  motionCanvas.style.display = 'none';
+  canvasControls.style.display = 'none';
+  motionVideo.play();
+});
+
+tabCanvas.addEventListener('click', () => {
+  tabCanvas.classList.add('active');
+  tabVideo.classList.remove('active');
+  motionVideo.pause();
+  motionVideo.style.display = 'none';
+  motionCanvas.style.display = 'block';
+  canvasControls.style.display = 'flex';
+});
+
+// Autoplay video on load
+motionVideo.play().catch(() => {});
+
+// Global Seek Implementation for Playwright and Canvas
+const DURATION = 15.000;
+const FPS = 60;
+const canvas = document.getElementById('motionCanvas');
+const ctx = canvas.getContext('2d');
+
+function spring(t, t0, omega = 18, zeta = 0.55, target = 1, initial = 0) {
+  if (t < t0) return initial;
+  const tau = t - t0;
+  const delta = target - initial;
+  const omegaD = omega * Math.sqrt(Math.max(0.0001, 1 - zeta * zeta));
+  const envelope = Math.exp(-zeta * omega * tau);
+  return target - envelope * (delta * Math.cos(omegaD * tau) + ((zeta * omega * delta) / omegaD) * Math.sin(omegaD * tau));
+}
+
+function seek(t) {
+  motionVideo.currentTime = t;
+  const totalSec = Math.floor(t);
+  const ms = Math.floor((t % 1) * 100);
+  document.getElementById('timeDisplay').textContent = `00:00:${totalSec.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
+  document.getElementById('frameDisplay').textContent = `F${Math.round(t * 60).toString().padStart(3, '0')}/900`;
+  document.getElementById('scrubber').value = Math.round(t * 60);
+}
+window.seek = seek;
+
+document.getElementById('scrubber').addEventListener('input', (e) => {
+  seek(e.target.value / 60);
+});
+document.getElementById('jumpDropBtn').addEventListener('click', () => seek(3.50));
+document.getElementById('jumpReturnBtn').addEventListener('click', () => seek(14.75));
+document.getElementById('restartBtn').addEventListener('click', () => seek(0));
+</script>
+</body>
+</html>
